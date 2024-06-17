@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mi parqueito</h1>
+    <table border ="1">
+        {% for lista in parqueo %}
+        <tr>
+            {% for campo in lista %}
+        <td>
+            <h2>{{campo.id}}</h2>
+            {% if campo.esta_vacio()%}
+            VACIO
+            {%else%}
+            OCUPADO
+            {%endif%}
+        </td>
+        {% endfor%}
+        </tr>
+        {% endfor%}
+    </table>
+    {%if tiene_espacio %}
+    <a href = {{url_for("parquear")}}>Parquear un vehículo </a>
+    {%endif%}
+</body>
+</html>
